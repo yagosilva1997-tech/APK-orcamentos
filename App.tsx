@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import Home from './components/Home';
-import QuoteForm from './components/QuoteForm';
-import Gallery from './components/Gallery';
-import PriceTable from './components/PriceTable';
-import Emergency from './components/Emergency';
-import ServiceRating from './components/ServiceRating';
-import AdminPanel from './components/AdminPanel';
-import AdminLoginModal from './components/AdminLoginModal';
-import { AppSection, AppSettings } from './types';
-import { getAppSettings, BUSINESS_INFO } from './constants';
+import Home from './components/Home.tsx';
+import QuoteForm from './components/QuoteForm.tsx';
+import Gallery from './components/Gallery.tsx';
+import PriceTable from './components/PriceTable.tsx';
+import Emergency from './components/Emergency.tsx';
+import ServiceRating from './components/ServiceRating.tsx';
+import AdminPanel from './components/AdminPanel.tsx';
+import AdminLoginModal from './components/AdminLoginModal.tsx';
+import { AppSection, AppSettings } from './types.ts';
+import { getAppSettings, BUSINESS_INFO } from './constants.tsx';
 
 export default function App() {
   const [page, setPage] = useState<AppSection>('home');

@@ -1,20 +1,17 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Initialize AI strictly with process.env.API_KEY
-// The define in vite.config.ts ensures process.env is available
-const getAI = () => {
-  const apiKey = process.env.API_KEY;
-  if (!apiKey) return null;
-  return new GoogleGenAI({ apiKey });
-};
-
 export const getSmartQuoteEstimate = async (problemDescription: string) => {
   try {
-    const ai = getAI();
-    if (!ai) {
+    // Usamos process.env.API_KEY que será substituído pelo Vite no build
+    const apiKey = process.env.API_KEY;
+    
+    if (!apiKey || apiKey === '') {
+      console.warn("API_KEY não configurada.");
       return "Análise automática temporariamente indisponível. Nossa equipe analisará manualmente.";
     }
 
+    const ai = new GoogleGenAI({ apiKey });
+    
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: `O cliente descreveu o seguinte problema elétrico: "${problemDescription}". 
