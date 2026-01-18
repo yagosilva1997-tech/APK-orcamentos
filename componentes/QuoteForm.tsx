@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { ICONS, BUSINESS_INFO } from '../constants';
+import { ICONS } from '../constants';
 import { getSmartQuoteEstimate } from '../geminiService';
 import { AppSettings } from '../types';
 
@@ -31,7 +30,6 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ onBack, settings }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const text = `Olá SoS Elétrica! Novo orçamento:\n\nNome: ${formData.name}\nLocal: ${formData.location}\nServiço: ${formData.service}\nDescrição: ${formData.description}`;
-    // Fix: Use settings.phone instead of BUSINESS_INFO.phone which does not exist
     const url = `https://wa.me/${settings.phone}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };

@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { ICONS, BUSINESS_INFO } from '../constants';
+import { ICONS } from '../constants';
 import { AppSettings } from '../types';
 
 interface ServiceRatingProps {
@@ -16,7 +15,6 @@ const ServiceRating: React.FC<ServiceRatingProps> = ({ onBack, settings }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const text = `⭐ AVALIAÇÃO DE SERVIÇO ⭐\n\nNota: ${rating} estrelas\nFeedback: ${comment}`;
-    // Fix: Use settings.phone instead of BUSINESS_INFO.phone
     const url = `https://wa.me/${settings.phone}?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
     setSubmitted(true);

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ICONS, getAppSettings } from '../constants';
 import { AppSettings } from '../types';
@@ -10,7 +9,6 @@ interface AdminPanelProps {
 
 const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onUpdate }) => {
   const [localSettings, setLocalSettings] = useState<AppSettings>(getAppSettings());
-  const [showVercelGuide, setShowVercelGuide] = useState(false);
 
   const handleSave = () => {
     localStorage.setItem('sos_settings', JSON.stringify(localSettings));
@@ -84,7 +82,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onBack, onUpdate }) => {
           </h3>
           
           <p className="text-gray-400 text-sm leading-relaxed">
-            Para que seus clientes possam acessar o app pelo link oficial (ex: soseletrica.vercel.app), siga estes passos:
+            Para que seus clientes possam acessar o app pelo link oficial, siga estes passos:
           </p>
 
           <div className="space-y-4">

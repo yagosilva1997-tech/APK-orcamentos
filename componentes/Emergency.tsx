@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ICONS, BUSINESS_INFO } from '../constants';
+import { ICONS } from '../constants';
 import { AppSettings } from '../types';
 
 interface EmergencyProps {
@@ -10,13 +9,11 @@ interface EmergencyProps {
 
 const Emergency: React.FC<EmergencyProps> = ({ onBack, settings }) => {
   const handleCall = () => {
-    // Fix: Use settings.phone instead of BUSINESS_INFO.phone
     window.open(`tel:${settings.phone}`);
   };
 
   const handleZap = () => {
     const text = "🚨 EMERGÊNCIA ELÉTRICA! Preciso de atendimento urgente.";
-    // Fix: Use settings.phone instead of BUSINESS_INFO.phone
     window.open(`https://wa.me/${settings.phone}?text=${encodeURIComponent(text)}`, '_blank');
   };
 

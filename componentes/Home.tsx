@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { AppSection } from '../types';
 import { BUSINESS_INFO } from '../constants';

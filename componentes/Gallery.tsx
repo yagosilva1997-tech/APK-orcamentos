@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ICONS } from '../constants';
 
@@ -25,7 +24,6 @@ const Gallery: React.FC<GalleryProps> = ({ onBack, isAdmin }) => {
   const [isAdding, setIsAdding] = useState(false);
   const [newItem, setNewItem] = useState({ url: '', title: '', category: 'Residencial' });
 
-  // Carregar do localStorage
   useEffect(() => {
     const saved = localStorage.getItem('sos_gallery');
     if (saved) {
