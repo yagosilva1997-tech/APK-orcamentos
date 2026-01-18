@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Home from './components/Home';
 import QuoteForm from './components/QuoteForm';
 import Gallery from './components/Gallery';
@@ -28,7 +27,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-yellow-400 selection:text-black">
-      {/* Navbar Superior */}
       <nav className="px-6 py-5 border-b border-zinc-900 flex justify-between items-center sticky top-0 bg-black/90 backdrop-blur-xl z-50">
         <div onClick={() => handleNavigate('home')} className="flex items-center gap-3 cursor-pointer">
           <div className={`w-9 h-9 rounded-xl flex items-center justify-center font-black text-black text-sm transition-colors ${isAdmin ? 'bg-green-500' : 'bg-yellow-400'}`}>SOS</div>
@@ -54,7 +52,6 @@ export default function App() {
         </div>
       </nav>
 
-      {/* Conteúdo Dinâmico */}
       <main className="max-w-6xl mx-auto">
         {page === 'home' && <Home onNavigate={handleNavigate} isAdmin={isAdmin} />}
         {page === 'quote' && <QuoteForm onBack={() => setPage('home')} settings={settings} />}
@@ -65,21 +62,18 @@ export default function App() {
         {page === 'admin' && <AdminPanel onBack={() => setPage('home')} onUpdate={setSettings} />}
       </main>
 
-      {/* Modal de Acesso Admin */}
       <AdminLoginModal 
         isOpen={showLogin} 
         onClose={() => setShowLogin(false)} 
         onSuccess={() => { setIsAdmin(true); setPage('admin'); }} 
       />
 
-      {/* Rodapé Oficial */}
       <footer className="p-12 border-t border-zinc-950 text-center space-y-6 bg-zinc-950/50 mt-20">
         <div className="space-y-1">
           <p className="text-[9px] text-zinc-600 uppercase font-black tracking-[0.3em]">{settings.address}</p>
           <p className="text-[9px] text-zinc-600 uppercase font-black tracking-[0.3em]">{settings.email}</p>
         </div>
         
-        {/* Clique triplo no CNPJ para abrir admin (gatilho discreto) */}
         <div 
           onClick={() => !isAdmin && setShowLogin(true)} 
           className="text-zinc-800 cursor-pointer text-[9px] font-black uppercase tracking-widest hover:text-yellow-400 transition-colors"
