@@ -1,0 +1,8 @@
+{
+  "name": "SoS Elétrica - Orçamentos e Serviços",
+  "description": "Aplicativo profissional de orçamentos e serviços elétricos para Tarumã, Assis e região, liderado pelo Engenheiro Eletricista Yago Silva.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}
